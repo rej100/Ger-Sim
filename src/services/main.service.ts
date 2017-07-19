@@ -88,7 +88,6 @@ export class MainService
       this.cashWurstCost = Number(localStorage.getItem("cashWurstCost"));
     }
 
-    //Arrow functions break syntax highlighting in atom so i'll be putting them at the bottom.
     WurstIncomeThread = () =>
     {
       //console.log(this.wurstAmount);

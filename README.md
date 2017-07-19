@@ -26,3 +26,5 @@ or:
 ```bash
 ionic cordova build ios
 ```
+### Atom editor tip
+The ```TypeStrong``` Typescript plugin for atom is really useful, strongly recommended.
