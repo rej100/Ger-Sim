@@ -1,14 +1,46 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      <p class="gTitle">German Simulator</p>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content scroll="false">
+  <div class="ionContentIsShit">
+    <div class="resourceDiv">
+      <img id="wurstIco" class="resourceIco" src="./././assets/images/wurst.png">
+      <p class="resourceText">{{mainService.wurstAmount}}</p>
+    </div>
+    <div class="resourceDiv">
+      <img class="resourceIco" src="./././assets/images/cash.png">
+      <p class="resourceText">{{mainService.cashAmount}}</p>
+    </div>
+    <img (tap)="WurstClick(); mainService.Save();"class="mainWurstImg" src="./././assets/images/wurst.png" alt="">
+    <!--
+    <button (click)="mainService.Save();" type="button" name="button">save</button>
+    <button (click)="mainService.LoadSave();" type="button" name="button">load save</button>
+    -->
+  </div>
+
 </ion-content>
+
+<ion-footer>
+  <ion-navbar class="bottomNavbar">
+    <div (tap)="mainService.currentTab = 0; mainService.ChangeRoot(homePage);" class="bottomNavbarMenuDiv"> <!-- Current tab -->
+
+    </div>
+    <div (tap)="mainService.currentTab = 1; mainService.ChangeRoot(wurstStore);" class="bottomNavbarMenuDiv">
+
+    </div>
+    <div (tap)="mainService.currentTab = 2;" class="bottomNavbarMenuDiv">
+
+    </div>
+    <div (tap)="mainService.currentTab = 3;" class="bottomNavbarMenuDiv">
+
+    </div>
+    <div (tap)="mainService.currentTab = 4;" class="bottomNavbarMenuDiv">
+
+    </div>
+  </ion-navbar>
+</ion-footer>

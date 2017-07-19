@@ -14,3 +14,95 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+ion-title
+{
+  text-align: center;
+}
+ion-navbar
+{
+  height: 0px;
+}
+ion-content
+{
+}
+.bottomNavbar
+{
+
+}
+.resourceDiv
+{
+  display: block;
+  border-style: solid;
+  border-color: black;
+  width: 45%;
+  height: 50px;
+  float: right;
+  margin-right: 20px;
+}
+.resourceDiv:first-of-type
+{
+  margin-right: 0px;
+}
+.ionContentIsShit
+{
+  padding: 20px;
+}
+.resourceIco
+{
+  width: 40px;
+  margin-top: 2.5px;
+}
+#wurstIco
+{
+  margin-left: 2px;
+}
+.resourceText
+{
+  float: right;
+  margin-right: 10px;
+  font-size: 15px;
+}
+.mainWurstImg
+{
+  width: 200px;
+  margin-left: 24%;
+  margin-top: 100px;
+}
+.bottomNavbarMenuDiv
+{
+  border-left-style: solid;
+  border-color: black;
+  height: 50px;
+  width: 15%;
+  float: left;
+  margin-left: 6.2%;
+}
+.bottomNavbarMenuDiv:first-of-type
+{
+  margin-left: 0px;
+  border-left-style: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**/
