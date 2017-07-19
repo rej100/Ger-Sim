@@ -1,8 +1,8 @@
-## A german simulator.
+# A german simulator.
 
 This will be built using the newest version of `ionic` and `Angular 4`, this is my first non-malware android app and i'm pretty excited to finally try using higher abstraction level frameworks.
 
-###Getting this up and running
+### Getting this up and running
 First off, to work with this, `cd` into the project directory and run:
 
 ```bash
@@ -19,4 +19,10 @@ To compile the thing run:
 
 ```bash
 ionic cordova build android
+```
+
+or:
+
+```bash
+ionic cordova build ios
 ```
