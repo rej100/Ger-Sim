@@ -31,12 +31,12 @@ export class HomePage
   {
   }
 
-  ShowAlert()
+  ShowAlert(title:string, description:string)
   {
     let alert = this.alertCtrl.create
     ({
-      title: 'New Friend!',
-      subTitle: "",
+      title: title,
+      subTitle: description,
       buttons: ['OK']
     });
     alert.present();

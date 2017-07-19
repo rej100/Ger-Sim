@@ -48,6 +48,8 @@ export class MainService
       {
         this.LoadSave();
       }
+      this.SaveThread();
+      this.WurstIncomeThread();
     }
 
     ChangeRoot(root:any)
@@ -84,5 +86,19 @@ export class MainService
       this.cashAmount = Number(localStorage.getItem("cashAmount"));
       this.cashPassivePower = Number(localStorage.getItem("cashPassivePower"));
       this.cashWurstCost = Number(localStorage.getItem("cashWurstCost"));
+    }
+
+    //Arrow functions break syntax highlighting in atom so i'll be putting them at the bottom.
+    WurstIncomeThread = () =>
+    {
+      //console.log(this.wurstAmount);
+      //console.log(this.wurstPassivePower);
+      this.wurstAmount += this.wurstPassivePower;
+      setTimeout(this.WurstIncomeThread, 1000);
+    }
+    SaveThread = () =>
+    {
+      this.Save();
+      setTimeout(this.SaveThread, 2000);
     }
 }
