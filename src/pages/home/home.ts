@@ -8,6 +8,9 @@ import { App } from 'ionic-angular';
 
 import { MainService } from "../../services/main.service";
 import { WurstStore } from '../wurstStore/wurstStore';
+import { CashStore } from '../cashStore/cashStore';
+import { Unlock } from '../unlock/unlock';
+import { Info } from '../info/info';
 
 @Component
 ({
@@ -18,8 +21,11 @@ export class HomePage
 {
   @ViewChild(Content) content: Content;
 
-  wurstStore:any = WurstStore;
   homePage:any = HomePage;
+  wurstStore:any = WurstStore;
+  cashStore:any = CashStore;
+  unlock:any = Unlock;
+  info:any = Info;
 
   constructor(public appCtrl: App, private changeDetector: ChangeDetectorRef, public alertCtrl: AlertController, public navCtrl: NavController, public mainService: MainService)
   {

@@ -8,17 +8,18 @@ import { App } from 'ionic-angular';
 
 import { MainService } from "../../services/main.service";
 import { HomePage } from '../home/home';
-import { CashStore } from '../cashStore/cashStore';
+import { WurstStore } from '../wurstStore/wurstStore';
 import { Unlock } from '../unlock/unlock';
 import { Info } from '../info/info';
 
 @Component
 ({
-  selector: 'page-wurstStore',
-  templateUrl: 'wurstStore.html'
+  selector: 'page-cashStore',
+  templateUrl: 'cashStore.html'
 })
-export class WurstStore
+export class CashStore
 {
+  @ViewChild(Content) content: Content;
 
   homePage:any = HomePage;
   wurstStore:any = WurstStore;
@@ -28,7 +29,6 @@ export class WurstStore
 
   constructor(public appCtrl: App, private changeDetector: ChangeDetectorRef, public alertCtrl: AlertController, public navCtrl: NavController, public mainService: MainService)
   {
-
   }
 
 }

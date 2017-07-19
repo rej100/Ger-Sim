@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      <p class="gTitle">German Simulator</p>
+      <p class="gTitle">German Simulator - Main Page</p>
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -33,13 +33,13 @@
     <div (tap)="mainService.currentTab = 1; mainService.ChangeRoot(wurstStore);" class="bottomNavbarMenuDiv">
 
     </div>
-    <div (tap)="mainService.currentTab = 2;" class="bottomNavbarMenuDiv">
+    <div (tap)="mainService.currentTab = 2; mainService.ChangeRoot(cashStore);" class="bottomNavbarMenuDiv">
 
     </div>
-    <div (tap)="mainService.currentTab = 3;" class="bottomNavbarMenuDiv">
+    <div (tap)="mainService.currentTab = 3; mainService.ChangeRoot(unlock);" class="bottomNavbarMenuDiv">
 
     </div>
-    <div (tap)="mainService.currentTab = 4;" class="bottomNavbarMenuDiv">
+    <div (tap)="mainService.currentTab = 4; mainService.ChangeRoot(info);" class="bottomNavbarMenuDiv">
 
     </div>
   </ion-navbar>

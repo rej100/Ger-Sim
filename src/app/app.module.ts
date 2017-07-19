@@ -10,12 +10,18 @@ import { MainService } from "../services/main.service";
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { WurstStore } from '../pages/wurstStore/wurstStore';
+import { CashStore } from '../pages/cashStore/cashStore';
+import { Unlock } from '../pages/unlock/unlock';
+import { Info } from '../pages/info/info';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    WurstStore
+    WurstStore,
+    CashStore,
+    Unlock,
+    Info
   ],
   imports: [
     BrowserModule,
@@ -25,7 +31,10 @@ import { WurstStore } from '../pages/wurstStore/wurstStore';
   entryComponents: [
     MyApp,
     HomePage,
-    WurstStore
+    WurstStore,
+    CashStore,
+    Unlock,
+    Info
   ],
   providers: [
     StatusBar,
