@@ -4,6 +4,65 @@ import { App } from 'ionic-angular';
 import { HomePage } from '../pages/home/home';
 import { WurstStore } from '../pages/wurstStore/wurstStore';
 
+//
+//You migh wanna use the "collapse brackets" fucntion of your editor here.
+//
+
+class GeItem
+{
+  id:number;
+  name:string;
+  lvl:number;
+  baseCost:number;
+  cost:number;
+  wurstPassiveBonus:number;
+  wurstPassiveModifier:number;
+  cashPassiveBonus:number;
+  cashPassiveModifier:number;
+
+  ImmediateEffect:any;
+  CustomPassiveEffect:any;
+
+  constructor()
+  {
+    this.id = null;
+    this.name = "ud";
+    this.lvl = 0;
+    this.baseCost = 0;
+    this.cost = this.baseCost;
+    this.wurstPassiveBonus = 0;
+    this.wurstPassiveModifier = 0;
+    this.cashPassiveBonus = 0;
+    this.cashPassiveModifier = 0;
+    this.ImmediateEffect = function() {};
+    this.CustomPassiveEffect = function() {};
+  }
+
+  UpdateCost()
+  {
+    this.cost = this.baseCost;
+    for(var i = 0; i < this.lvl; i++)
+    {
+      this.cost *= 1.5;
+    }
+  }
+
+  Save()
+  {
+    localStorage.setItem(this.name + "lvl", this.lvl.toString());
+  }
+  Load()
+  {
+    this.lvl = Number(localStorage.getItem(this.name + "lvl"));
+  }
+};
+
+//Item declarations:
+
+let iRod:GeItem = new GeItem();
+iRod.baseCost = 20;
+let iItems:GeItem[] = [iRod];
+
 @Injectable()
 export class MainService
 {
@@ -49,7 +108,7 @@ export class MainService
         this.LoadSave();
       }
       this.SaveThread();
-      this.WurstIncomeThread();
+      this.IncomeThread();
     }
 
     ChangeRoot(root:any)
@@ -57,14 +116,6 @@ export class MainService
       this.appCtrl.getRootNav().setRoot(root);
     }
 
-    Test()
-    {
-      location.reload();
-    }
-    Reload()
-    {
-      location.reload();
-    }
     Save()
     {
       localStorage.setItem("firstRun", false.toString());
@@ -88,12 +139,13 @@ export class MainService
       this.cashWurstCost = Number(localStorage.getItem("cashWurstCost"));
     }
 
-    WurstIncomeThread = () =>
+    IncomeThread = () =>
     {
       //console.log(this.wurstAmount);
       //console.log(this.wurstPassivePower);
+      this.cashAmount += this.cashPassivePower;
       this.wurstAmount += this.wurstPassivePower;
-      setTimeout(this.WurstIncomeThread, 1000);
+      setTimeout(this.IncomeThread, 1000);
     }
     SaveThread = () =>
     {
