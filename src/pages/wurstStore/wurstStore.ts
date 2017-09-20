@@ -31,4 +31,14 @@ export class WurstStore
 
   }
 
+  HandleArrow(amount:number, id:string)
+  {
+    //currentAmount:number = Number(document.getElementById(id).innerHTML);
+    var currentAmount = Number(document.getElementById(id).innerHTML);
+    currentAmount += amount;
+    if(currentAmount < 0)
+      currentAmount = 0;
+    document.getElementById(id).innerHTML = currentAmount.toString();
+  }
+
 }

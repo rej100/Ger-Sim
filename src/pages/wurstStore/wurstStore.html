@@ -9,10 +9,11 @@
 <ion-content scroll="false">
   <div class="ionContentIsShitW">
     <div class="storeItem">
+      <img class="storeItemIMG"src="./././assets/images/rod.png" alt="">
       <div class="storeItemInput">
-        <img class="inputArrowLeft" src="./././assets/images/smallarr.png" alt="">
-        <span class="stInputNum">10</span>
-        <img class="inputArrowRight" src="./././assets/images/smallarr.png" alt="">
+        <img (tap)="HandleArrow(-1, 'iRodINum');" class="inputArrowLeft" src="./././assets/images/smallarr.png" alt="">
+        <span id="iRodINum" class="stInputNum">0</span>
+        <img (tap)="HandleArrow(1, 'iRodINum');" class="inputArrowRight" src="./././assets/images/smallarr.png" alt="">
       </div>
     </div>
     <div class="storeItem">
@@ -49,3 +50,36 @@
     </div>
   </ion-navbar>
 </ion-footer>
+<script type="text/javascript">
+//console.log(document.getElementById("iRodINum").innerHTML);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- -->
