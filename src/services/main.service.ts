@@ -154,6 +154,28 @@ export class MainService
       this.appCtrl.getRootNav().setRoot(root);
     }
 
+    HandleHandleBuy(iRodAmount:number)
+    {
+      for(var i = 0; i < itemNum; ++i)
+      {
+        iItems[i].UpdateCost();
+      }
+      if(iRod.cost > this.wurstAmount)
+      {
+        return 1;
+      }
+      else
+      {
+        ++iRod.lvl;
+        return 0;
+      }
+    }
+
+    Dump()
+    {
+      console.log(this.wurstAmount, this.wurstPassivePower, this.wurstPower, this.cashAmount, this.cashPassivePower, iRod, iTest);
+    }
+
     Save()
     {
       localStorage.setItem("firstRun", false.toString());

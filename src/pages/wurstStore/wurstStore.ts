@@ -40,5 +40,10 @@ export class WurstStore
       currentAmount = 0;
     document.getElementById(id).innerHTML = currentAmount.toString();
   }
+  HandleBuy()
+  {
+    var iRodAmount = Number(document.getElementById("iRodINum").innerHTML);
+    console.log(iRodAmount);
+  }
 
 }

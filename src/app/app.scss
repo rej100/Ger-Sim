@@ -141,6 +141,23 @@ ion-content
   margin-left: 8%;
   margin-top: 5px;
 }
+.buyButtonContainer
+{
+  position: fixed;
+  background-color: #ff5656;
+  //width: 38%;
+  //height: 45px;
+  bottom: 100px;
+  margin-left: 27%;
+  border-style: solid;
+  border-color: black;
+  text-align: center;
+}
+.buyButtonText
+{
+  padding: 4vw;
+  font-size: 7vw;
+}
 
 
 
