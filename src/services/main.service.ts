@@ -57,6 +57,21 @@ class GeItem
     }
   }
 
+  SimulateLvlCost(lvll:number)
+  {
+    var costt, baseCostt;
+    costt = this.cost;
+    baseCostt = this.baseCost;
+    costt = baseCostt;
+
+    for(var i = 0; i < lvll; ++i)
+    {
+      costt *= this.costScaling;
+    }
+    console.log("costt: ", costt );
+    return costt;
+  }
+
   UpdateCost()
   {
     this.cost = this.baseCost;
@@ -154,20 +169,47 @@ export class MainService
       this.appCtrl.getRootNav().setRoot(root);
     }
 
+    CheckIfAbleToAffordItem(item:GeItem, amount:number)
+    {
+      var finalCost = 0, originalLvl;
+      originalLvl = item.lvl;
+
+      var resp = {errCode: 1, finalCost: -1};
+
+      for(var i = 0; i < amount; ++i)
+      {
+
+        finalCost += item.SimulateLvlCost(originalLvl + i);
+      }
+      if(this.wurstAmount >= finalCost)
+      {
+        resp.errCode = 0;
+        resp.finalCost = finalCost;
+      }
+      console.log("finalCost: ", finalCost, "wurstAmount: ", this.wurstAmount);
+      console.log(item);
+      return resp;
+    }
+
     HandleHandleBuy(iRodAmount:number)
     {
+      var tmp;
       for(var i = 0; i < itemNum; ++i)
       {
         iItems[i].UpdateCost();
       }
-      if(iRod.cost > this.wurstAmount)
+      tmp = this.CheckIfAbleToAffordItem(iRod, iRodAmount)
+      if((tmp.errCode == 0))
       {
-        return 1;
+
+        this.wurstAmount -= tmp.finalCost;
+        iRod.lvl += iRodAmount;
+        return 0;
       }
       else
       {
-        ++iRod.lvl;
-        return 0;
+        console.log("hb: ", tmp);
+        return 1;
       }
     }
 
@@ -212,12 +254,13 @@ export class MainService
         if(iItems[i].lvl > 0)
         {
           iItems[i].CalculatePassiveBonuses();
-          helperWurstPower += iItems[i].wurstPassiveBonus;
-          helperCashPower += iItems[i].cashPassiveBonus;
+          helperWurstPower += iItems[i].actualWurstPassiveBonus;
+          helperCashPower += iItems[i].actualCashPassiveBonus;
         }
       }
       this.wurstPassivePower = helperWurstPower;
       this.cashPassivePower = helperWurstPower;
+      setTimeout(this.ItemThread, 1000)
     }
 
     IncomeThread = () =>

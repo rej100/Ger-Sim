@@ -44,6 +44,52 @@ export class WurstStore
   {
     var iRodAmount = Number(document.getElementById("iRodINum").innerHTML);
     console.log(iRodAmount);
+    var result = this.mainService.HandleHandleBuy(iRodAmount);
+    if(result == 1)
+    {
+      console.log("Not enough wurst");
+    }
+    else if(result == 0)
+    {
+      console.log("Bought")
+      this.mainService.Dump();
+    }
   }
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
