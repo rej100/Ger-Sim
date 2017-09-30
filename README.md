@@ -2,6 +2,8 @@
 
 This will be built using the newest version of `ionic` and `Angular 4`, this is my first non-malware android app and i'm pretty excited to finally try using higher abstraction level frameworks.
 
+### Warning! This project is messy!
+
 ### Getting this up and running
 First off, to work with this, `cd` into the project directory and run:
 
@@ -28,3 +30,4 @@ ionic cordova build ios
 ```
 ### Atom editor tip
 The ```TypeStrong``` Typescript plugin for atom is really useful, strongly recommended.
+
