@@ -229,6 +229,10 @@ export class MainService
       localStorage.setItem("cashAmount", this.cashAmount.toString());
       localStorage.setItem("cashPassivePower", this.cashPassivePower.toString());
       localStorage.setItem("cashWurstCost", this.cashWurstCost.toString());
+      for(var i = 0; i < itemNum; ++i)
+      {
+        iItems[i].Save();
+      }
     }
     LoadSave()
     {
@@ -242,6 +246,10 @@ export class MainService
       this.cashAmount = Number(localStorage.getItem("cashAmount"));
       this.cashPassivePower = Number(localStorage.getItem("cashPassivePower"));
       this.cashWurstCost = Number(localStorage.getItem("cashWurstCost"));
+      for(var i = 0; i < itemNum; ++i)
+      {
+        iItems[i].Load();
+      }
     }
 
     ItemThread = () =>
@@ -259,7 +267,7 @@ export class MainService
         }
       }
       this.wurstPassivePower = helperWurstPower;
-      this.cashPassivePower = helperWurstPower;
+      this.cashPassivePower = helperCashPower;
       setTimeout(this.ItemThread, 1000)
     }
 
