@@ -109,6 +109,7 @@ iTest.lvlWurstMultiplier = 1.6;
 iTest.lvlCashMultiplier = 1.6;
 iTest.baseCost = 20;
 iTest.wurstPassiveBonus = 0.4;
+iTest.cashPassiveBonus = 0.2;
 iTest.customPassiveEffect = "eTestTwo";
 
 let iItems:GeItem[];
@@ -191,19 +192,31 @@ export class MainService
       return resp;
     }
 
-    HandleHandleBuy(iRodAmount:number)
+    HandleHandleBuy(iRodAmount:number, testTwoAmount:number)
     {
-      var tmp;
+      var tmp = {errCode: 1, finalCost: -1}, iRodTest, testTwoTest;
       for(var i = 0; i < itemNum; ++i)
       {
         iItems[i].UpdateCost();
       }
-      tmp = this.CheckIfAbleToAffordItem(iRod, iRodAmount)
+
+      iRodTest = this.CheckIfAbleToAffordItem(iRod, iRodAmount);
+      testTwoTest = this.CheckIfAbleToAffordItem(iTest, testTwoAmount);
+
+
+      tmp.finalCost = iRodTest.finalCost + testTwoTest.finalCost;
+
+      if(this.wurstAmount - tmp.finalCost > 0)
+      {
+        tmp.errCode = 0;
+      }
+
       if((tmp.errCode == 0))
       {
 
         this.wurstAmount -= tmp.finalCost;
         iRod.lvl += iRodAmount;
+        iTest.lvl += testTwoAmount;
         return 0;
       }
       else
@@ -258,7 +271,7 @@ export class MainService
       var helperCashPower = 0;
       for(var i = 0; i < itemNum; ++i)
       {
-        console.log(iItems[i].lvl);
+        //console.log(iItems[i].lvl);
         if(iItems[i].lvl > 0)
         {
           iItems[i].CalculatePassiveBonuses();

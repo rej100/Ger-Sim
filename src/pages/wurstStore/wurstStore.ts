@@ -43,8 +43,9 @@ export class WurstStore
   HandleBuy()
   {
     var iRodAmount = Number(document.getElementById("iRodINum").innerHTML);
-    console.log(iRodAmount);
-    var result = this.mainService.HandleHandleBuy(iRodAmount);
+    var testTwoAmount = Number(document.getElementById("testTwoNum").innerHTML)
+    //console.log(iRodAmount);
+    var result = this.mainService.HandleHandleBuy(iRodAmount, testTwoAmount);
     if(result == 1)
     {
       console.log("Not enough wurst");
