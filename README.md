@@ -1,5 +1,7 @@
 # A german simulator.
 
+DEPRECATED
+
 This will be built using the newest version of `ionic` and `Angular 4`, this is my first non-malware android app and i'm pretty excited to finally try using higher abstraction level frameworks.
 
 ### Warning! This project is messy!
